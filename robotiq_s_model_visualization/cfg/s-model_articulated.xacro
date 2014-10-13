@@ -7,7 +7,10 @@ s-model_articulated - articulated version of the robotiq s-model,
 <robot name="s-model_articulated" xmlns:xacro="http://ros.org/wiki/xacro">
 
 	<xacro:include filename="$(find robotiq_s_model_visualization)/cfg/s-model_articulated_macro.xacro" />
-	<xacro:s-model_articulated prefix=""/>
+	<xacro:s-model_articulated prefix=""
+	                           fixed_joints="revolute"
+	                           default_joint2="-0.52"
+	                           default_joint3="0.0" />
 
 <!--
 	<include filename="$(find robotiq_s_model_visualization)/cfg/s-model_finger_articulated_macro.xacro" />

@@ -7,7 +7,7 @@ finger(i.e. finger_1, etc...).
 
 -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-	<xacro:macro name="s-model_finger_articulated" params="prefix">
+	<xacro:macro name="s-model_finger_articulated" params="prefix fixed_joints default_joint2 default_joint3">
 		<!-- link list -->
 		<link name="${prefix}link_0">
 			<visual>
@@ -112,22 +112,22 @@ finger(i.e. finger_1, etc...).
 			<child link="${prefix}link_1"/>
 			<axis xyz="0 0 1"/>
 			<origin xyz="0.020 0 0" rpy="0 0 0"/>
-			<limit lower="0" upper="3.1416" effort="100" velocity="100"/>
+			<limit lower="0" upper="2.0944" effort="100" velocity="100"/>
 		</joint>
 		<!-- WARNING: LIMITS NOT CORRECT -->
-		<joint name="${prefix}joint_2" type="revolute">
+		<joint name="${prefix}joint_2" type="${fixed_joints}">
 			<parent link="${prefix}link_1"/>
 			<child link="${prefix}link_2"/>
 			<axis xyz="0 0 1"/>
-			<origin xyz="0.050 -.028 0" rpy="0 0 -0.52"/>
+			<origin xyz="0.050 -.028 0" rpy="0 0 ${default_joint2}"/>
 			<limit lower="0" upper="3.1416" effort="100" velocity="100"/>
 		</joint>
 		<!-- WARNING: LIMITS NOT CORRECT -->
-		<joint name="${prefix}joint_3" type="revolute">
+		<joint name="${prefix}joint_3" type="${fixed_joints}">
 			<parent link="${prefix}link_2"/>
 			<child link="${prefix}link_3"/>
 			<axis xyz="0 0 1"/>
-			<origin xyz="0.039 0 0" rpy="0 0 0"/>
+			<origin xyz="0.039 0 0" rpy="0 0 ${default_joint3}"/>
 			<limit lower="0" upper="3.1416" effort="100" velocity="100"/>
 		</joint>
 		<!-- end of joint list -->
