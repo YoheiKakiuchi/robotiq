@@ -1,156 +1,20 @@
-<robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="s-model_articulated_gazebo" params="prefix">
-    <!-- gazebo setting for links -->
-    <gazebo reference="${prefix}finger_1_link_0">
-      <mu1>0.9</mu1>
-      <mu2>0.9</mu2>
-    </gazebo>
-    <gazebo reference="${prefix}finger_1_link_1">
-      <mu1>0.9</mu1>
-      <mu2>0.9</mu2>
-    </gazebo>
-    <gazebo reference="${prefix}finger_1_link_2">
-      <mu1>0.9</mu1>
-      <mu2>0.9</mu2>
-    </gazebo>
-    <gazebo reference="${prefix}finger_1_link_3">
-      <mu1>0.9</mu1>
-      <mu2>0.9</mu2>
-    </gazebo>
-    <gazebo reference="${prefix}finger_2_link_0">
-      <mu1>0.9</mu1>
-      <mu2>0.9</mu2>
-    </gazebo>
-    <gazebo reference="${prefix}finger_2_link_1">
-      <mu1>0.9</mu1>
-      <mu2>0.9</mu2>
-    </gazebo>
-    <gazebo reference="${prefix}finger_2_link_2">
-      <mu1>0.9</mu1>
-      <mu2>0.9</mu2>
-    </gazebo>
-    <gazebo reference="${prefix}finger_2_link_3">
-      <mu1>0.9</mu1>
-      <mu2>0.9</mu2>
-    </gazebo>
-    <gazebo reference="${prefix}finger_middle_link_0">
-      <mu1>0.9</mu1>
-      <mu2>0.9</mu2>
-    </gazebo>
-    <gazebo reference="${prefix}finger_middle_link_1">
-      <mu1>0.9</mu1>
-      <mu2>0.9</mu2>
-    </gazebo>
-    <gazebo reference="${prefix}finger_middle_link_2">
-      <mu1>0.9</mu1>
-      <mu2>0.9</mu2>
-    </gazebo>
-    <gazebo reference="${prefix}finger_middle_link_3">
-      <mu1>0.9</mu1>
-      <mu2>0.9</mu2>
-    </gazebo>
-    <gazebo reference="${prefix}palm">
-      <mu1>0.9</mu1>
-      <mu2>0.9</mu2>
-    </gazebo>
-    <!-- gazebo setting for joints -->
-    <transmission type="pr2_mechanism_model/SimpleTransmission" name="${prefix}finger_1_joint_1_trans" >
-      <actuator name="${prefix}finger_1_joint_1_motor" />
-      <joint name="${prefix}finger_1_joint_1" />
-      <mechanicalReduction>1</mechanicalReduction>
-    </transmission>
-    <gazebo reference="${prefix}finger_1_joint_1">
-      <cfmDamping>0.4</cfmDamping>
-    </gazebo>
-    <transmission type="pr2_mechanism_model/SimpleTransmission" name="${prefix}finger_1_joint_2_trans" >
-      <actuator name="${prefix}finger_1_joint_2_motor" />
-      <joint name="${prefix}finger_1_joint_2" />
-      <mechanicalReduction>1</mechanicalReduction>
-    </transmission>
-    <gazebo reference="${prefix}finger_1_joint_2">
-      <cfmDamping>0.4</cfmDamping>
-    </gazebo>
-    <transmission type="pr2_mechanism_model/SimpleTransmission" name="${prefix}finger_1_joint_3_trans" >
-      <actuator name="${prefix}finger_1_joint_3_motor" />
-      <joint name="${prefix}finger_1_joint_3" />
-      <mechanicalReduction>1</mechanicalReduction>
-    </transmission>
-    <gazebo reference="${prefix}finger_1_joint_3">
-      <cfmDamping>0.4</cfmDamping>
-    </gazebo>
+<?xml version="1.0" ?>
 
-    <transmission type="pr2_mechanism_model/SimpleTransmission" name="${prefix}finger_2_joint_1_trans" >
-      <actuator name="${prefix}finger_2_joint_1_motor" />
-      <joint name="${prefix}finger_2_joint_1" />
-      <mechanicalReduction>1</mechanicalReduction>
-    </transmission>
-    <gazebo reference="${prefix}finger_2_joint_1">
-      <cfmDamping>0.4</cfmDamping>
-    </gazebo>
-    <transmission type="pr2_mechanism_model/SimpleTransmission" name="${prefix}finger_2_joint_2_trans" >
-      <actuator name="${prefix}finger_2_joint_2_motor" />
-      <joint name="${prefix}finger_2_joint_2" />
-      <mechanicalReduction>1</mechanicalReduction>
-    </transmission>
-    <gazebo reference="${prefix}finger_2_joint_2">
-      <cfmDamping>0.4</cfmDamping>
-    </gazebo>
-    <transmission type="pr2_mechanism_model/SimpleTransmission" name="${prefix}finger_2_joint_3_trans" >
-      <actuator name="${prefix}finger_2_joint_3_motor" />
-      <joint name="${prefix}finger_2_joint_3" />
-      <mechanicalReduction>1</mechanicalReduction>
-    </transmission>
-    <gazebo reference="${prefix}finger_2_joint_3">
-      <cfmDamping>0.4</cfmDamping>
-    </gazebo>
+<!-- 
+s-model_articulated - articulated version of the robotiq s-model,
+3 fingered gripper.                                                
+-->
+<robot name="s-model_articulated" xmlns:xacro="http://ros.org/wiki/xacro">
 
-    <transmission type="pr2_mechanism_model/SimpleTransmission" name="${prefix}finger_middle_joint_1_trans" >
-      <actuator name="${prefix}finger_middle_joint_1_motor" />
-      <joint name="${prefix}finger_middle_joint_1" />
-      <mechanicalReduction>1</mechanicalReduction>
-    </transmission>
-    <gazebo reference="${prefix}finger_middle_joint_1">
-      <cfmDamping>0.4</cfmDamping>
-    </gazebo>
-    <transmission type="pr2_mechanism_model/SimpleTransmission" name="${prefix}finger_middle_joint_2_trans" >
-      <actuator name="${prefix}finger_middle_joint_2_motor" />
-      <joint name="${prefix}finger_middle_joint_2" />
-      <mechanicalReduction>1</mechanicalReduction>
-    </transmission>
-    <gazebo reference="${prefix}finger_middle_joint_2">
-      <cfmDamping>0.4</cfmDamping>
-    </gazebo>
-    <transmission type="pr2_mechanism_model/SimpleTransmission" name="${prefix}finger_middle_joint_3_trans" >
-      <actuator name="${prefix}finger_middle_joint_3_motor" />
-      <joint name="${prefix}finger_middle_joint_3" />
-      <mechanicalReduction>1</mechanicalReduction>
-    </transmission>
-    <gazebo reference="${prefix}finger_middle_joint_3">
-      <cfmDamping>0.4</cfmDamping>
-    </gazebo>
-
-    <transmission type="pr2_mechanism_model/SimpleTransmission" name="${prefix}palm_finger_1_joint_trans" >
-      <actuator name="${prefix}palm_finger_1_joint_motor" />
-      <joint name="${prefix}palm_finger_1_joint" />
-      <mechanicalReduction>1</mechanicalReduction>
-    </transmission>
-    <gazebo reference="${prefix}palm_finger_1_joint">
-      <cfmDamping>0.4</cfmDamping>
-    </gazebo>
-    <transmission type="pr2_mechanism_model/SimpleTransmission" name="${prefix}palm_finger_2_joint_trans" >
-      <actuator name="${prefix}palm_finger_2_joint_motor" />
-      <joint name="${prefix}palm_finger_2_joint" />
-      <mechanicalReduction>1</mechanicalReduction>
-    </transmission>
-    <gazebo reference="${prefix}palm_finger_2_joint">
-      <cfmDamping>0.4</cfmDamping>
-    </gazebo>
-
-    <gazebo>
-      <plugin filename="libIOBPlugin.so" name="hrpsys_gazebo_plugin" >
-        <robotname>${prefix}ROBOTIQ</robotname>
-        <controller>hrpsys_gazebo_configuration</controller>
-      </plugin>
-    </gazebo>
-  </xacro:macro>
+	<xacro:include filename="$(find robotiq_s_model_visualization)/cfg/s-model_articulated_macro.xacro" />
+	<xacro:s-model_articulated prefix=""
+	                           fixed_joints="revolute"
+	                           default_joint2="-0.52"
+	                           default_joint3="-0.0" />
+	<xacro:include filename="$(find robotiq_s_model_visualization)/cfg/s-model_articulated_gazebo.xacro" />
+        <xacro:s-model_articulated_gazebo prefix="" />
+<!--
+	<include filename="$(find robotiq_s_model_visualization)/cfg/s-model_finger_articulated_macro.xacro" />
+	<xacro:s-model_finger_articulated prefix=""/>
+-->
 </robot>
